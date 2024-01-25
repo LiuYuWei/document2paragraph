@@ -5,6 +5,7 @@ import time
 import os
 import argparse
 import docx  # python-docx
+from io import StringIO
 
 class TextExtractor:
     def __init__(self, file_path):
@@ -65,6 +66,19 @@ class TextExtractor:
                 writer.writerow({'text': item, 'file_name': self.file_path})
 
         return csv_file_name
+    
+    def get_csv_data(self, data):
+        # 使用 StringIO 來建立 CSV 格式的字符串
+        csv_stringio = StringIO()
+        writer = csv.DictWriter(csv_stringio, fieldnames=['text', 'file_name'])
+        writer.writeheader()
+        for item in data:
+            writer.writerow({'text': item, 'file_name': self.file_path})
+        
+        # 將 StringIO 內容轉換為字節串
+        csv_string = csv_stringio.getvalue()
+        csv_bytes = csv_string.encode()
+        return csv_bytes
 
 def main(args):
     extractor = TextExtractor(args.file_path)
