@@ -26,7 +26,7 @@ To use the `document2paragraph` tool, follow these steps:
 2. Execute the script with the following command:
 
 ```bash
-python main.py <file_path> --pattern <split_pattern> --folder <output_folder>
+python main.py <document_file_path> --pattern <split_pattern> --folder <output_folder>
 ```
 
 For example:
