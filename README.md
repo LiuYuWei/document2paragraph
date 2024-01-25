@@ -35,6 +35,15 @@ For example:
 python main.py example.pdf --pattern "(\s*[一二三四五六七八九十]{1,3}\、)" --folder result
 ```
 
+## Streamlit webUI
+
+1. You can use the following method to run the streamlit webUI.
+```bash
+git clone https://github.com/LiuYuWei/document2paragraph.git
+cd document2paragraph
+streamlit run streamlit.py
+```
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
